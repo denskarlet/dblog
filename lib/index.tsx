@@ -33,7 +33,7 @@ const getAllPosts = async () => {
 
 const getPostsIds = async () => {
   const fileNames = await fs.readdir(postsDir);
-  return fileNames.map((filename) => filename.slice(0, -4));
+  return fileNames.map((filename) => ({params: {id: filename.slice(0, -4)}}));
 };
 
 export { getPostData, getAllPosts, getPostsIds };
