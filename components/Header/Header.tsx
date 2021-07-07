@@ -21,7 +21,7 @@ const Header = () => {
         HAM
       </button>
       {showHamburger && <div>Ill be a hamburger</div>}
-      <div className={header}>Denys&apos; dev blog</div>
+      <div className={header}>Denis&apos; dev blog</div>
       <ul className={linkList}>
         {links.map(([url, display]) => (
           <li className={linkWrapper} key={url}>
