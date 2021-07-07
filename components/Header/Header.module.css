@@ -1,0 +1,42 @@
+.wrapper {
+  background-color: aquamarine;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  font-size: 2rem;
+  min-width: fit-content;
+}
+
+.linkList {
+  max-width: 50%;
+  display: flex;
+  justify-content: space-between;
+  color: var(--global-color-warning);
+  list-style-type: none;
+}
+
+.linkWrapper {
+  padding: 0 16px;
+  min-width: fit-content;
+}
+
+.linkWrapper:hover {
+  transform: scale(1.2);
+  color: red;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .linkList {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
