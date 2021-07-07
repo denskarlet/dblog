@@ -1,8 +1,21 @@
+import Link from 'next/link';
+
 import { getPostData, getAllPosts } from '../../lib/index';
 
-const Posts = ({posts}:any) => {
-  console.log({posts})
-  return <div>This is gonna be my blog</div>;
+const Posts = ({ posts }: any) => {
+  return (
+    <div>
+      This is gonna be my blog
+      {posts.map(({ data }: any) => {
+        const { displayName, id } = data;
+        return (
+          <Link key={id} href={`/posts/${id}`}>
+            <a>{displayName}</a>
+          </Link>
+        );
+      })}
+    </div>
+  );
 };
 
 export default Posts;

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-
+import styles from './Header.module.css';
+const { linkList } = styles;
 const links = [
   ['/', 'Home'],
   ['/posts', 'Blog'],
@@ -11,7 +12,7 @@ const links = [
 const Header = () => {
   return (
     <div>
-      <ul>
+      <ul className={linkList}>
         {links.map(([url, display]) => (
           <li key={url}>
             <Link href={url}>
