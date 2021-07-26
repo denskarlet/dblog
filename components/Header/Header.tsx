@@ -1,17 +1,13 @@
 import Link from 'next/link';
+import { Hamburger } from '../Hamburger/Hamgurger';
 import { useState } from 'react';
+import { links } from '../../util/navigation';
 import styles from './Header.module.css';
+
 const { linkList, linkWrapper, wrapper, header, hamburger } = styles;
-const links = [
-  ['/', 'Home'],
-  ['/posts', 'Blog'],
-  ['/about', 'About me'],
-  ['/contact', 'Contact'],
-  ['/github', 'Github'],
-];
 
 const Header = () => {
-  const [showHamburger, setShowHamburger] = useState(false);
+  const [showHamburger, setShowHamburger] = useState<boolean>(false);
   return (
     <div className={wrapper}>
       <button
@@ -20,7 +16,7 @@ const Header = () => {
       >
         HAM
       </button>
-      {showHamburger && <div>Ill be a hamburger</div>}
+      {showHamburger && <Hamburger links={links} />}
       <div className={header}>Denys&apos; dev blog</div>
       <ul className={linkList}>
         {links.map(([url, display]) => (
