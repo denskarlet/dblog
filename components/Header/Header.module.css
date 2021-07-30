@@ -2,7 +2,7 @@
   background-color: aquamarine;
   padding: 16px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .header {

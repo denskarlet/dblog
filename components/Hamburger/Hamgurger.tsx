@@ -1,13 +1,17 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { LinkType } from '../../util/navigation';
+import HamburgerIcon from '../../svgs/Hamburger.svg'
 import styles from './Hamburger.module.css';
 
-export const Hamburger = ({ links }: HamburgerProps) => {
+export const Hamburger = ({ links, onClickCallback }: HamburgerProps) => {
   return (
-    <div>
+    <div className={styles.hamburger}>
+      <button onClick={onClickCallback}>
+        <HamburgerIcon />
+      </button>
       {links.map(([url, display]) => (
-        <li className={styles.wrapper} key={url}>
+        <li className={styles.list} key={url}>
           <Link href={url}>
             <a>{display}</a>
           </Link>
@@ -19,4 +23,5 @@ export const Hamburger = ({ links }: HamburgerProps) => {
 
 type HamburgerProps = {
   links: LinkType[];
+  onClickCallback: () => void
 };

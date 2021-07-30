@@ -1,4 +1,10 @@
-.wrapper {
+.list {
   display: flex;
   flex-direction: column;
+}
+
+.hamburger {
+  position: absolute;
+  background-color: red;
+  height: 100vh
 }
