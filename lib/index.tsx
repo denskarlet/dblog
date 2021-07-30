@@ -10,6 +10,7 @@ const postsDir = path.resolve(process.cwd(), 'lib', 'posts');
 type Post = {
   data: string;
 };
+
 const getPostData = async (filename: string) => {
   const postPath = path.resolve(postsDir, filename);
   const file = await fs.readFile(postPath);
@@ -22,9 +23,7 @@ const getPostData = async (filename: string) => {
 };
 
 const getAllPosts = async () => {
-  const fileNames = await fs.readdir(
-    path.resolve(process.cwd(), 'lib', 'posts')
-  );
+  const fileNames = await fs.readdir(postsDir);
   const posts = await Promise.all(
     fileNames.map((filename) => getPostData(filename))
   );
@@ -33,7 +32,9 @@ const getAllPosts = async () => {
 
 const getPostsIds = async () => {
   const fileNames = await fs.readdir(postsDir);
-  return fileNames.map((filename) => ({params: {id: filename.slice(0, -4)}}));
+  return fileNames.map((filename) => ({
+    params: { id: filename.slice(0, -4) },
+  }));
 };
 
 export { getPostData, getAllPosts, getPostsIds };
