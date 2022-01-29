@@ -12,7 +12,9 @@ const Header = () => {
     <div className={wrapper}>
       <button
         className={hamburger}
-        onClick={() => setShowHamburger(!showHamburger)}
+        onClick={(e) => {
+          setShowHamburger(!showHamburger);
+        }}
       >
         HAM
       </button>
